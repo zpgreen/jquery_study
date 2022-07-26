@@ -15,7 +15,7 @@
 			height: 40px;
 			background-position-y: 0;
 			overflow: hidden;
-			display: inline-block;
+			display: block;
 			float: left;
 		}
 		.tab-menu li:hover{
@@ -26,57 +26,66 @@
 			height: 80px;
 		}
 		.tab-menu li.menuitem1{
-			background-image: url(/images/newbtn.bar.1.png);
+			background-image: url(/chapter6/images/newbtn.bar.1.png);
 		}
 		.tab-menu li.menuitem2{
-			background-image: url(/images/newbtn.bar.2.png);
+			background-image: url(/chapter6/images/newbtn.bar.2.png);
 		}
 		.tab-menu li.menuitem3{
-			background-image: url(/images/newbtn.bar.3.png);
+			background-image: url(/chapter6/images/newbtn.bar.3.png);
 		}
 		.tab-menu li.menuitem4{
-			background-image: url(/images/newbtn.bar.4.png);
+			background-image: url(/chapter6/images/newbtn.bar.4.png);
 		}
 		.tab-menu li.menuitem5{
-			background-image: url(/images/newbtn.bar.5.png);
+			background-image: url(/chapter6/images/newbtn.bar.5.png);
 		}
 		.tab-menu li.menuitem6{
-			background-image: url(/images/newbtn.bar.6.png);
+			background-image: url(/chapter6/images/newbtn.bar.6.png);
 		}
 
 	</style>
-	<script src="/libs/jquery-3.6.0.min.js"></script>
+	<script src="/chapter6/libs/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			tabMenu("#tabmenu1");
+			tabMenu("#tabmenu1 li");
+			// tabMenu("#tabmenu1");
 		});
 		function tabMenu(selector){
-			var $tabMenu = null;
-			var $menuItems = null;
+			// var $tabMenu = null;
+			// var $menuItems = null;
 
 			var $selectedMenuItem = null;
 
-			function init(selector){
-				$tabMenu = $(selector);
-				$menuItems = $tabMenu.find("li");
+			// function init(selector){
+			// 	$tabMenu = $(selector);
+			// 	$menuItems = $tabMenu.find("li");
 
-			}
-			function initEvent(){
-				$menuItems.click(function(){
-					setSelectItem($(this));
-				});
-			}
-			function setSelectItem($item){
+			// }
+			// function initEvent(){
+			// 	$menuItems.click(function(){
+			// 		setSelectItem($(this));
+			// 	});
+			// }
+			// function setSelectItem($item){
+			// 	if($selectedMenuItem != null)
+			// 	{
+			// 		$selectedMenuItem.removeClass("select");
+			// 	}
+			// 	$selectedMenuItem = $item;
+			// 	$selectedMenuItem.addClass("select");
+			// 	$("#info").html($selectedMenuItem.index());
+			// }
+			// init(selector);
+			// initEvent();
+			$(selector).click(function(){
 				if($selectedMenuItem != null)
 				{
 					$selectedMenuItem.removeClass("select");
 				}
-				$selectedMenuItem = $item;
+				$selectedMenuItem = $(this);
 				$selectedMenuItem.addClass("select");
-				$("#info").html($selectedMenuItem.index());
-			}
-			init(selector);
-			initEvent();
+			});
 		}
 		
 	
